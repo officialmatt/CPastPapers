@@ -41,12 +41,88 @@ int nonRec(int n)
 	
 	return ans;
 }
+
+int * create(int size, int value)
+{
+	int *myArray = malloc(sizeof(int)* size);
+	for(int i = 0; i<size;i++)
+	{
+		*myArray = value;
+		//myArray[i] = value;
+		myArray++;
+	}
+	
+	//printf("%d", myArray[1]);
+	return myArray;
+}
+
+void triangle(int height, char b)
+{
+	int spaces = 3;
+	for(int i = 0; i<height*2;i++)
+	{
+	
+	
+		if(i<height)
+		{
+			for(int j = 0; j<spaces;j++)
+				{
+					printf(" ");
+				}
+			for(int j = 0; j<=i;j++)
+				{
+					printf("%c",b);
+				}
+				spaces--;
+		}
+		else 
+		{
+			for(int j = 0; j<spaces;j++)
+				{
+					printf(" ");
+				}
+			printf("hi");
+			for(int j = height-1; j>=i;j--)
+			{
+				printf("%c",b);
+			}
+			
+			spaces++;
+			
+		}
+		
+		printf("\n");
+	}
+}
+
+void triangle2(int height, char b)
+{
+	int spaces = 0;
+	for(int i = 0; i<height;i++)
+	{
+		for(int j = 0; j<spaces;j++)
+		{
+			printf(" ");
+		}
+		for(int j = height-1; j>=i;j--)
+		{
+			printf("%c",b);
+		}
+		
+		spaces++;
+		printf("\n");
+	}
+}
+	
+	
 int main(int argc, char *argv[]) {
 	
 	//int ans = find("there",'a');
 	//int ans = match("there","her");
-	int ans = nonRec(2);
+	//int ans = nonRec(2);
+	int ans = create(10,5);
+	triangle(4,'*');
 	
-	printf("%d",ans);
+	//printf("%d",ans);
 	
 }
